@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nuclear Automation</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/anr.css">
+  </head>
+  <body>
+    <div id="javascriptAlert">
+      <h2>Loading ANR Platform...</h2>
+      <strong>If loading time too long, try or check the following below:</strong><br>
+      <span>Enable JavaScript</span><br>
+      <span>Check internet connection</span><br>
+      <span>Check if any files failed to load</span><br><br>
+      <strong>If none of above match, we are currently on maintenance</strong>
+    </div>
+    <div id="programPort" style="display: none;">
+      <form action="javascript:startSimTraining()">
+        <strong>Simulation data options</strong><br>
+        <select id="dataPlan">
+          <option value="sample">Use Sample Data</option>
+          <option value="upload">Upload Custom Data</option>
+        </select><br>
+        <div id="uploadPort" style="display: none">
+          <strong>Upload simulation data (.txt or .anr) </strong><br>
+          <input id="filePort" type="file"></input><br>
+        </div>
+        <br>
+        <input type="submit" value="Start Simulation">
+      </form>
+      <div id="simPort">
+        <div id="simDeact">
+          <i>Simulation is not running</i>
+        </div>
+        <div id="simAct" style="display: none;">
+          <i>Simulation is running: <strong>Do not exit page</strong></i><br><br>
+          <hr>
+          <strong>Day : </strong><span id="simDayInt">0</span><br>
+          <strong>Time : </strong><span id="simHrsInt">12:00am</span><hr>
+
+          <strong>Coolant Pump (Boric Acid Water) : </strong><span id="simDayInt">off</span><br>
+          <strong>Power (0%) : </strong><input type="range" value="0" min="0" max="100"><br><br>
+
+          <strong>Control rod position : </strong><br>(0%)
+          <input type="range" value="0" min="0" max="100"><br>
+          <strong>Reactor Core (F) : </strong>
+          <input type="range" value="0" min="0" max="100"><br><br>
+
+          <strong>Steam Output : </strong><br>(0%)
+          <input type="range" value="0" min="0" max="100"><br>
+          <strong>Steam Generators : </strong><br>(0MW)
+          <input type="range" value="0" min="0" max="1695"><hr>
+          <strong>Current Demand : </strong><span is="demandInt">0</span>MW<br>
+          <strong>Fuel pellets used : </strong>(<span id="fuelPelletUsedInt">0</span>kg)
+        </div>
+      </div>
+    </div>
+    <script src="js/ui.js"></script>
+    <script src="js/ai.js"></script>
+  </body>
+</html>
