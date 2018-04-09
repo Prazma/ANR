@@ -32,7 +32,10 @@
         <div id="simDeact">
           <i>Simulation is not running</i>
         </div>
+
+        <!--beginning of simulation run content (markup if precise)-->
         <div id="simAct" style="display: none;">
+          <div id="setupIntervalVis"><strong>Coolant Setup : </strong><span id="cSetupInt">11:00</span></div>
           <i>Simulation is running: <strong>Do not exit page</strong></i><br><br>
           <hr>
           <strong>Day : </strong><span id="simDayInt">0</span><br>
@@ -53,6 +56,8 @@
           <strong>Current Demand : </strong><span is="demandInt">0</span>MW<br>
           <strong>Fuel pellets used : </strong>(<span id="fuelPelletUsedInt">0</span>kg)
         </div>
+        <!--end of simulation run markup-->
+
       </div>
     </div>
     <script src="js/ui.js"></script>

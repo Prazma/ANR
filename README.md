@@ -6,3 +6,6 @@ Considering the three major solutions for problems that may by affective for the
 * Eco-friendly transportation
 * Sustainable energy production
 * Sustainable environmental resources
+
+### Why did we make this
+This automation platform was created as a demo for a presentation lead at a Taylor Wilson event thingy at my school.
