@@ -17,7 +17,9 @@ var ANRai = {
       }, 10);
 
       var timeCount = 0;
+      var dayCount = 1;
       var baseTime = 9*60;
+      var dataRefInt = 0;
       var s = setInterval(function(){
         if( safetyMode == false ) {
           timeCount += 1;
@@ -32,14 +34,27 @@ var ANRai = {
                 hourHand = 1;
               }
             }
+          }
+          if( hourHand == 1, minHand == 0 ) {
+            dayCount += 1;
+          }
+          document.getElementById("simHrsInt").innerHTML = hourHand+":"+minHand;
+          document.getElementById("simDayInt").innerHTML = dayCount;
 
-            console.log(hourHand+":"+minHand);
+          //set demand data
+          var inspectDemandCode = sampleData[dataRefInt];
+          var inspectTimeArray = inspectDemandCode.split("^");
+
+          var dataRangePreArray = inspectTimeArray[1];
+          var dataRangeArray = dataRangePreArray.split("-");
+
+          var timeString = hourHand+"."+minHand;
+          if( timeString == inspectTimeArray[0] ) {
+            dataRefInt += 1;
+          } else {
+            document.getElementById("demandInt").innerHTML = Math.floor(Math.random() * (dataRangeArray[1] - dataRangeArray[0] + 1) ) + dataRangeArray[0];
           }
 
-
-          //convert time count to actual time
-          var ccTime = (baseTime + timeCount)/60;
-          console.log(ccTime);
           if(timeCount >= 432000) {
             clearInterval(i);
             alert("done with simulation");
