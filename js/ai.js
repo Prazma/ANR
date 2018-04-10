@@ -1,5 +1,5 @@
 var ANRai = {
-  startSim : function ( reactorT, dataLink ) {
+  startSim : function ( reactorT ) {
     if( reactorT == "pwr" ) {
       var safetyMode = true;
       var setup = 11;
@@ -20,6 +20,7 @@ var ANRai = {
       var dayCount = 1;
       var baseTime = 9*60;
       var dataRefInt = 0;
+      var rangeRefInt = 0;
       var s = setInterval(function(){
         if( safetyMode == false ) {
           timeCount += 1;
@@ -35,24 +36,25 @@ var ANRai = {
               }
             }
           }
-          if( hourHand == 1, minHand == 0 ) {
+          if( hourHand == 1&&minHand == 0 ) {
             dayCount += 1;
           }
           document.getElementById("simHrsInt").innerHTML = hourHand+":"+minHand;
           document.getElementById("simDayInt").innerHTML = dayCount;
 
           //set demand data
-          var inspectDemandCode = sampleData[dataRefInt];
-          var inspectTimeArray = inspectDemandCode.split("^");
-
-          var dataRangePreArray = inspectTimeArray[1];
-          var dataRangeArray = dataRangePreArray.split("-");
-
-          var timeString = hourHand+"."+minHand;
-          if( timeString == inspectTimeArray[0] ) {
+          var limitStamp = sampleTData[dataRefInt];
+          var checkStamp = hourHand + minHand/100;
+          if( limitStamp ==  checkStamp ) {
             dataRefInt += 1;
+            rangeRefInt += 2;
+            if(dataRefInt == 36 ){
+              dataRefInt = 0;
+              rangeRefInt = 0;
+            }
+            console.log("Range reference integer is :"+rangeRefInt+". thus, data ref int is "+dataRefInt);
           } else {
-            document.getElementById("demandInt").innerHTML = Math.floor(Math.random() * (dataRangeArray[1] - dataRangeArray[0] + 1) ) + dataRangeArray[0];
+            document.getElementById("demandInt").innerHTML = Math.floor(Math.random() * (sampleRData[rangeRefInt+1] - sampleRData[rangeRefInt] + 1) ) + sampleRData[rangeRefInt];
           }
 
           if(timeCount >= 432000) {
