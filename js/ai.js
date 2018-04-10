@@ -17,14 +17,29 @@ var ANRai = {
       }, 10);
 
       var timeCount = 0;
-      var baseTime = 9.00;
+      var baseTime = 9*60;
       var s = setInterval(function(){
         if( safetyMode == false ) {
           timeCount += 1;
-          //convert time count to actual time
-          var ccTime = baseTime + (timeCount/100);
-          console.log(ccConvert);
+          var hourHand = 0;
+          var minHand = 0;
+          for(i=0;i<baseTime+timeCount;i++){
+            minHand += 1;
+            if(minHand == 60 ) {
+              minHand = 0;
+              hourHand += 1;
+              if( hourHand == 25 ) {
+                hourHand = 1;
+              }
+            }
 
+            console.log(hourHand+":"+minHand);
+          }
+
+
+          //convert time count to actual time
+          var ccTime = (baseTime + timeCount)/60;
+          console.log(ccTime);
           if(timeCount >= 432000) {
             clearInterval(i);
             alert("done with simulation");
