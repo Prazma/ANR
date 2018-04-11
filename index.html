@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/anr.css">
   </head>
   <body>
+    <h1>AI PWR Automation</h1>
     <div id="javascriptAlert">
       <h2>Loading ANR Platform...</h2>
       <strong>If loading time too long, try or check the following below:</strong><br>
@@ -42,17 +43,17 @@
           <strong>Time : </strong><span id="simHrsInt">12:00am</span><hr>
 
           <strong>Coolant Pump (Boric Acid Water) : </strong><span id="simDayInt">off</span><br>
-          <strong>Power (0%) : </strong><input type="range" value="0" min="0" max="100"><br><br>
+          <strong>Power (0%) : </strong><input type="range" value="0" min="0" max="100" disabled><br><br>
 
           <strong>Control rod position : </strong><br>(0%)
           <input type="range" value="0" min="0" max="100"><br>
           <strong>Reactor Core (F) : </strong>
-          <input type="range" value="0" min="0" max="100"><br><br>
+          <input type="range" value="0" min="0" max="100" disabled><br><br>
 
           <strong>Steam Output : </strong><br>(0%)
           <input type="range" value="0" min="0" max="100"><br>
           <strong>Steam Generators : </strong><br>(0MW)
-          <input type="range" value="0" min="0" max="1695"><hr>
+          <input type="range" value="0" min="0" max="1695" disabled><hr>
           <strong>Current Demand : </strong><span id="demandInt">0</span>MW<br>
           <strong>Fuel pellets used : </strong>(<span id="fuelPelletUsedInt">0</span>kg)
         </div>
