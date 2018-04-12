@@ -1,20 +1,39 @@
+var Demand = {
+  x: [0],
+  y: [0],
+  mode : 'markers',
+  type : 'scatter',
+  name : 'Demand'
+};
+var Output = {
+  x: [0],
+  y: [0],
+  mode : 'markers',
+  type : 'scatter',
+  name : 'Output'
+};
+
 var ANRai = {
+  controlA : function () {
+    
+  }
+
   startSim : function ( reactorT ) {
     if( reactorT == "pwr" ) {
       var safetyMode = true;
-      var setup = 11;
+      var setup = 0;
       var time = 9.00;
       var i = setInterval(function(){
-        setup -= 0.01;
-        document.getElementById("cSetupInt").innerHTML =  Math.round(setup*100)/100;
+        setup += 1;
+        document.getElementById("cpri").value = setup;
 
         //start main sim
-        if(setup <= 9.01) {
+        if(setup == 50) {
           clearInterval(i);
           safetyMode = false;
         }
 
-      }, 10);
+      }, 2);
 
       var timeCount = 0;
       var dayCount = 1;
@@ -52,17 +71,20 @@ var ANRai = {
               dataRefInt = 0;
               rangeRefInt = 0;
             }
-            console.log("Range reference integer is :"+rangeRefInt+". thus, data ref int is "+dataRefInt);
           } else {
-            document.getElementById("demandInt").innerHTML = Math.floor(Math.random() * (sampleRData[rangeRefInt+1] - sampleRData[rangeRefInt] + 1) ) + sampleRData[rangeRefInt];
+            var dData = Math.floor(Math.random() * (sampleRData[rangeRefInt+1] - sampleRData[rangeRefInt] + 1) ) + sampleRData[rangeRefInt];
+            document.getElementById("demandInt").innerHTML = dData;
           }
+
+          //AI control behavior and the calculation of output and input
+
 
           if(timeCount >= 432000) {
             clearInterval(i);
             alert("done with simulation");
           }
         }
-      }, 100);
+      }, 10);
     }
   }
 }

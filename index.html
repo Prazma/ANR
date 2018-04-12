@@ -36,14 +36,14 @@
 
         <!--beginning of simulation run content (markup if precise)-->
         <div id="simAct" style="display: none;">
-          <div id="setupIntervalVis"><strong>Coolant Setup : </strong><span id="cSetupInt">11:00</span></div>
+          <div id="setupIntervalVis"><strong>Coolant Setup : </strong><span id="cSetupInt">Please Wait</span></div>
           <i>Simulation is running: <strong>Do not exit page</strong></i><br><br>
           <hr>
           <strong>Day : </strong><span id="simDayInt">0</span><br>
-          <strong>Time : </strong><span id="simHrsInt">12:00am</span><hr>
+          <strong>Time : </strong><span id="simHrsInt">--:--</span><hr>
 
           <strong>Coolant Pump (Boric Acid Water) : </strong><span id="simDayInt">off</span><br>
-          <strong>Power (0%) : </strong><input type="range" value="0" min="0" max="100" disabled><br><br>
+          <input id="cpri" type="range" value="0" min="0" max="100" disabled><br><br>
 
           <strong>Control rod position : </strong><br>(0%)
           <input type="range" value="0" min="0" max="100"><br>
@@ -58,7 +58,11 @@
           <strong>Fuel pellets used : </strong>(<span id="fuelPelletUsedInt">0</span>kg)
         </div>
         <!--end of simulation run markup-->
-
+        <select id="charten">
+          <option value="0">Graph is Disabled</option>
+          <option value="1">Graph is Enabled</option>
+        </select>
+        <div id="chartPort"></div>
       </div>
     </div>
     <script src="js/ui.js"></script>
