@@ -42,16 +42,16 @@
           <strong>Day : </strong><span id="simDayInt">0</span><br>
           <strong>Time : </strong><span id="simHrsInt">--:--</span><hr>
 
-          <strong>Coolant Pump (Boric Acid Water) : </strong><span id="simDayInt">off</span><br>
+          <strong>Coolant Pump (Boric Acid Water) : </strong><span id="bAcidState">off</span><br>
           <input id="cpri" type="range" value="0" min="0" max="100" disabled><br><br>
 
-          <strong>Control rod position : </strong><br>(0%)
-          <input type="range" value="0" min="0" max="100"><br>
+          <strong>Control rod position : </strong><br>(<span id="crpint">0</span>%)
+          <input onchange="updCrodPos(this)" type="range" value="0" min="0" max="100"><br>
           <strong>Reactor Core (F) : </strong>
           <input type="range" value="0" min="0" max="100" disabled><br><br>
 
-          <strong>Steam Output : </strong><br>(0%)
-          <input type="range" value="0" min="0" max="100"><br>
+          <strong>Steam Output : </strong><br>(<span id="soint">0</span>%)
+          <input onchange="soUpd(this)" type="range" value="0" min="0" max="100"><br>
           <strong>Steam Generators : </strong><br>(0MW)
           <input type="range" value="0" min="0" max="1695" disabled><hr>
           <strong>Current Demand : </strong><span id="demandInt">0</span>MW<br>
@@ -60,7 +60,7 @@
         <!--end of simulation run markup-->
         <select id="charten">
           <option value="0">Graph is Disabled</option>
-          <option value="1">Graph is Enabled</option>
+          <option value="1" disabled>Graph is Enabled (Processing power is lacking)</option>
         </select>
         <div id="chartPort"></div>
       </div>

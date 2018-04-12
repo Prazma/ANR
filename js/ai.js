@@ -15,14 +15,14 @@ var Output = {
 
 var ANRai = {
   controlA : function () {
-    
-  }
 
+  },
   startSim : function ( reactorT ) {
     if( reactorT == "pwr" ) {
       var safetyMode = true;
       var setup = 0;
       var time = 9.00;
+      document.getElementById("bAcidState").innerHTML = "on";
       var i = setInterval(function(){
         setup += 1;
         document.getElementById("cpri").value = setup;

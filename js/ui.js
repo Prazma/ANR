@@ -36,3 +36,11 @@ function startSimTraining() {
     //get file link or make input type="file" element value binary txt
   }
 }
+
+function updCrodPos( ele ) {
+  document.getElementById("crpint").innerHTML = ele.value;
+}
+
+function soUpd( ele ) {
+  document.getElementById("soint").innerHTML = ele.value;
+}
