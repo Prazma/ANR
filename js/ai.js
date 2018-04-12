@@ -1,18 +1,4 @@
-var Demand = {
-  x: [0],
-  y: [0],
-  mode : 'markers',
-  type : 'scatter',
-  name : 'Demand'
-};
-var Output = {
-  x: [0],
-  y: [0],
-  mode : 'markers',
-  type : 'scatter',
-  name : 'Output'
-};
-
+document.getElementById("rCoreR").value = 0;
 var ANRai = {
   controlA : function () {
 
@@ -77,7 +63,9 @@ var ANRai = {
           }
 
           //AI control behavior and the calculation of output and input
-
+          var cpriVal = document.getElementById("cpri").value;
+          var cRCoreR = document.getElementById("rodPosR").value;
+          document.getElementById("rCoreR").value = 30 + parseInt(cRCoreR);
 
           if(timeCount >= 432000) {
             clearInterval(i);
