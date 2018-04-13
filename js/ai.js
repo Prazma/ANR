@@ -65,7 +65,7 @@ var ANRai = {
             var dData = Math.floor(Math.random() * (sampleRData[rangeRefInt+1] - sampleRData[rangeRefInt] + 1) ) + sampleRData[rangeRefInt];
             document.getElementById("demandInt").innerHTML = dData;
             document.getElementById("strOu").value = parseInt(document.getElementById("demandInt").innerHTML)/16.95;
-            allTime += 0.01;
+            allTime += 1;
 
             if( dData == parseInt(document.getElementById("demandInt").innerHTML) ) {
               disTime += 1;
@@ -76,7 +76,7 @@ var ANRai = {
           var cpriVal = document.getElementById("cpri").value;
           var cRCoreR = document.getElementById("rodPosR").value;
           var stOut = document.getElementById("strOu").value;
-          document.getElementById("rCoreR").value = 30 + parseInt(cRCoreR);
+          document.getElementById("rCoreR").value = parseInt(document.getElementById("cpri").value)/60 + parseInt(cRCoreR);
           document.getElementById("cpri").value = setup + parseInt(cRCoreR) - parseInt(stOut);
           document.getElementById("npOutput").value = parseInt(stOut)*16.95;
 
@@ -95,14 +95,20 @@ var ANRai = {
 
           document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
 
-          document.getElementById("accInt").innerHTML = Math.floor(disTime/allTime);
+          var accTime = allTime*0.01;
+          document.getElementById("accInt").innerHTML = Math.floor((disTime/accTime)*100)/100;
+
+          if( parseInt(document.getElementById("cpri").value) < 30 && parseInt(document.getElementById("cpri").value) > 70 ) {
+            alert("Reactor has tripped");
+            disTime = 0;
+          }
 
           if(timeCount >= 432000) {
             clearInterval(i);
             alert("done with simulation");
           }
         }
-      }, 500);
+      }, 0);
     }
   }
 }
