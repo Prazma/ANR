@@ -64,6 +64,12 @@ var ANRai = {
           } else {
             var dData = Math.floor(Math.random() * (sampleRData[rangeRefInt+1] - sampleRData[rangeRefInt] + 1) ) + sampleRData[rangeRefInt];
             document.getElementById("demandInt").innerHTML = dData;
+            document.getElementById("strOu").value = parseInt(document.getElementById("demandInt").innerHTML)/16.95;
+            allTime += 0.01;
+
+            if( dData == parseInt(document.getElementById("demandInt").innerHTML) ) {
+              disTime += 1;
+            }
           }
 
           //AI control behavior and the calculation of output and input
@@ -75,7 +81,6 @@ var ANRai = {
           document.getElementById("npOutput").value = parseInt(stOut)*16.95;
 
           var insOutput = dData/16.95;
-          document.getElementById("strOu").value = insOutput;
           document.getElementById("soint").innerHTML = document.getElementById("strOu").value;
           document.getElementById("eonpR").innerHTML = Math.floor(parseInt(stOut)*16.95);
           var coolantVar =  document.getElementById("cpri").value;
@@ -90,12 +95,6 @@ var ANRai = {
 
           document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
 
-          allTime += 0.01;
-
-          if( document.getElementById("eonpR").innerHTML == document.getElementById("demandInt").innerHTML ) {
-            disTime += 1;
-          }
-
           document.getElementById("accInt").innerHTML = Math.floor(disTime/allTime);
 
           if(timeCount >= 432000) {
@@ -103,7 +102,7 @@ var ANRai = {
             alert("done with simulation");
           }
         }
-      }, 10);
+      }, 500);
     }
   }
 }
