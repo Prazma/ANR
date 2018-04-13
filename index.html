@@ -51,11 +51,12 @@
           <input id="rCoreR" type="range" min="0" max="100" disabled><br><br>
 
           <strong>Steam Output : </strong><br>(<span id="soint">0</span>%)
-          <input onchange="soUpd(this)" type="range" value="0" min="0" max="100"><br>
-          <strong>Steam Generators : </strong><br>(0MW)
-          <input type="range" value="0" min="0" max="1695" disabled><hr>
+          <input id="strOu" onchange="soUpd(this)" type="range" value="0" min="0" max="100"><br>
+          <strong>Steam Generators : </strong><br>(<span id="eonpR">0</span>MW)
+          <input id="npOutput" type="range" value="0" min="0" max="1695" disabled><hr>
           <strong>Current Demand : </strong><span id="demandInt">0</span>MW<br>
           <strong>Fuel pellets used : </strong>(<span id="fuelPelletUsedInt">0</span>kg)
+          <h2>Accuracy : <span id="accInt">100</span>%</h2>
         </div>
         <!--end of simulation run markup-->
         <select id="charten">

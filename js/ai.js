@@ -12,7 +12,8 @@ var ANRai = {
       var i = setInterval(function(){
         setup += 1;
         document.getElementById("cpri").value = setup;
-
+        document.getElementById("rodPosR").value = parseInt(document.getElementById("rodPosR").value) + 1;
+        document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
         //start main sim
         if(setup == 50) {
           clearInterval(i);
@@ -20,6 +21,9 @@ var ANRai = {
         }
 
       }, 2);
+
+      var allTime = 0;
+      var disTime = 0;
 
       var timeCount = 0;
       var dayCount = 1;
@@ -65,7 +69,34 @@ var ANRai = {
           //AI control behavior and the calculation of output and input
           var cpriVal = document.getElementById("cpri").value;
           var cRCoreR = document.getElementById("rodPosR").value;
+          var stOut = document.getElementById("strOu").value;
           document.getElementById("rCoreR").value = 30 + parseInt(cRCoreR);
+          document.getElementById("cpri").value = setup + parseInt(cRCoreR) - parseInt(stOut);
+          document.getElementById("npOutput").value = parseInt(stOut)*16.95;
+
+          var insOutput = dData/16.95;
+          document.getElementById("strOu").value = insOutput;
+          document.getElementById("soint").innerHTML = document.getElementById("strOu").value;
+          document.getElementById("eonpR").innerHTML = Math.floor(parseInt(stOut)*16.95);
+          var coolantVar =  document.getElementById("cpri").value;
+          var intCvar = parseInt(coolantVar);
+          if( intCvar == 50 ) {
+
+          } else if( intCvar < 50 ) {
+            document.getElementById("rodPosR").value = parseInt(document.getElementById("rodPosR").value) + 1;
+          } else if( intCvar > 50 ) {
+            document.getElementById("rodPosR").value = parseInt(document.getElementById("rodPosR").value) - 1;
+          }
+
+          document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
+
+          allTime += 0.01;
+
+          if( document.getElementById("eonpR").innerHTML == document.getElementById("demandInt").innerHTML ) {
+            disTime += 1;
+          }
+
+          document.getElementById("accInt").innerHTML = Math.floor(disTime/allTime);
 
           if(timeCount >= 432000) {
             clearInterval(i);
