@@ -8,7 +8,7 @@ var simPlatform = {
       document.getElementById("bAcidState").innerHTML = "on";
       var i = setInterval(function(){
         setup += 1;
-        document.getElementById("cpri").value = setup;
+        document.getElementById("rodPosR").value = setup;
         //start main sim
         if(setup == 50) {
           clearInterval(i);
@@ -61,6 +61,8 @@ var simPlatform = {
             document.getElementById("demandInt").innerHTML = dData;
           }
 
+          var demandV = parseInt(document.getElementById("demandInt").innerHTML);
+
           //AI control behavior and the calculation of output and input
           var cpriVal = document.getElementById("cpri").value;
           var cRCoreR = document.getElementById("rodPosR").value;
@@ -68,6 +70,7 @@ var simPlatform = {
           document.getElementById("rCoreR").value = parseInt(document.getElementById("cpri").value)/60 + parseInt(cRCoreR);
           document.getElementById("cpri").value = setup + parseInt(cRCoreR) - parseInt(stOut);
           document.getElementById("npOutput").value = parseInt(stOut)*16.95;
+          var npOutputV = document.getElementById("npOutput").value;
 
           var insOutput = dData/16.95;
           document.getElementById("soint").innerHTML = document.getElementById("strOu").value;
@@ -77,24 +80,31 @@ var simPlatform = {
 
           document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
 
-          automationAI.controlReactor();
+          //very important script
+          automationAI.controlReactor( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
+
+          if( parseInt(document.getElementById("npOutput").value) >= demandV ) {
+            disTime += 1;
+          }
+          allTime += 1;
 
           var accTime = allTime*0.01;
           document.getElementById("accInt").innerHTML = Math.floor((disTime/accTime)*100)/100;
 
-          if( parseInt(document.getElementById("cpri").value) < 30 || parseInt(document.getElementById("cpri").value) > 70 ) {
+          /*if( parseInt(document.getElementById("cpri").value) < 10 || parseInt(document.getElementById("cpri").value) > 90 ) {
             document.body.innerHTML += "<h1 style='color: red'>Reactor has tripped</h1>";
             setTimeout( function () {
               location.reload();
             }, 500)
-          }
+          }*/
+
 
           if(timeCount >= 432000) {
             clearInterval(i);
             alert("done with simulation");
           }
         }
-      }, 0);
+      }, 1);
     }
   }
 }
