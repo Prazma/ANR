@@ -1,6 +1,9 @@
 document.getElementById("rCoreR").value = 0;
 var simPlatform = {
   startSim : function ( reactorT ) {
+    document.getElementById("strtSimBtn").disabled = true;
+    document.getElementById("strtSimBtn").value = "Running...";
+
     if( reactorT == "pwr" ) {
       var safetyMode = true;
       var setup = 0;

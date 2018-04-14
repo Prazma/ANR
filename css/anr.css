@@ -4,6 +4,7 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 14px;
   text-align: center;
+  margin: 0;
 }
 .txtInput {
   background: #3b77db;
@@ -57,4 +58,26 @@ select:focus {
 
 .btn:active {
   background: #366cc5;
+}
+
+.btn:disabled {
+  background: #366cc5;
+}
+
+.footer {
+  padding: 10px 0px 10px 0px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #f2f2f2;
+  border-top: 1px solid #e4e4e4;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
