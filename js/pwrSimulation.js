@@ -19,6 +19,7 @@ var simPlatform = {
 
       var allTime = 0;
       var disTime = 0;
+      var startShield = true;
 
       var timeCount = 0;
       var dayCount = 1;
@@ -91,12 +92,16 @@ var simPlatform = {
           var accTime = allTime*0.01;
           document.getElementById("accInt").innerHTML = Math.floor((disTime/accTime)*100)/100;
 
-          /*if( parseInt(document.getElementById("cpri").value) < 10 || parseInt(document.getElementById("cpri").value) > 90 ) {
-            document.body.innerHTML += "<h1 style='color: red'>Reactor has tripped</h1>";
-            setTimeout( function () {
-              location.reload();
-            }, 500)
-          }*/
+          if( startShield == false ) {
+            if( parseInt(document.getElementById("cpri").value) < 10 || parseInt(document.getElementById("cpri").value) > 90 ) {
+              document.body.innerHTML += "<h1 style='color: red'>Reactor has tripped</h1>";
+              setTimeout( function () {
+                location.reload();
+              }, 500 )
+            }
+          } else {
+            startShield = false;
+          }
 
 
           if(timeCount >= 432000) {
