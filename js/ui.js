@@ -30,9 +30,9 @@ function startSimTraining() {
   if( dataPlan.value == "sample" ) {
     simAct.style.display = "block";
     simDeact.style.display = "none";
-    ANRai.startSim("pwr");
+    simPlatform.startSim("pwr");
 
-  } else { 
+  } else {
     //get file link or make input type="file" element value binary txt
   }
 }
