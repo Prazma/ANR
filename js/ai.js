@@ -1,6 +1,8 @@
 var automationAI = {
   controlReactor : function ( cpp, rct, stg, dem ) {
-    document.getElementById("strOu").value = dem/16.95;
+    var preSet = dem/1695;
+    document.getElementById("strOu").value = preSet * 100;
+    ouPerc = preSet*100;
 
     if( parseInt(document.getElementById("cpri").value) < 50 ) {
       console.log()
@@ -10,6 +12,6 @@ var automationAI = {
       var newCpriV = parseInt(document.getElementById("rodPosR").value) - 10;
       document.getElementById("rodPosR").value = newCpriV;
     }
-    
+
   }
 }

@@ -1,3 +1,4 @@
+var ouPerc = 0;
 document.getElementById("rCoreR").value = 0;
 var simPlatform = {
   startSim : function ( reactorT ) {
@@ -70,30 +71,34 @@ var simPlatform = {
           //AI control behavior and the calculation of output and input
           var cpriVal = document.getElementById("cpri").value;
           var cRCoreR = document.getElementById("rodPosR").value;
-          var stOut = document.getElementById("strOu").value;
           document.getElementById("rCoreR").value = parseInt(document.getElementById("cpri").value)/60 + parseInt(cRCoreR);
-          document.getElementById("cpri").value = setup + parseInt(cRCoreR) - parseInt(stOut);
-          document.getElementById("npOutput").value = parseInt(stOut)*16.95;
-          var npOutputV = document.getElementById("npOutput").value;
 
           var insOutput = dData/16.95;
           document.getElementById("soint").innerHTML = document.getElementById("strOu").value;
-          document.getElementById("eonpR").innerHTML = Math.floor(parseInt(stOut)*16.95);
           var coolantVar =  document.getElementById("cpri").value;
           var intCvar = parseInt(coolantVar);
 
           document.getElementById("crpint").innerHTML = document.getElementById("rodPosR").value;
+          var npOutputV = document.getElementById("npOutput").value;
 
           //very important script
           automationAI.controlReactor( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
+          var stOut = document.getElementById("strOu").value;
+          document.getElementById("npOutput").value = ouPerc*16.95;
 
-          if( parseInt(document.getElementById("npOutput").value) >= demandV ) {
+          document.getElementById("cpri").value = setup + parseInt(cRCoreR) - parseInt(stOut);
+          document.getElementById("eonpR").innerHTML = Math.floor(parseInt(stOut)*16.95);
+
+          if( startShield == false ) {
+            var accTime = allTime*0.01;
+            document.getElementById("accInt").innerHTML = Math.floor((disTime/accTime)*100)/100;
+          }
+
+
+          if( parseInt(document.getElementById("npOutput").value) == demandV ) {
             disTime += 1;
           }
           allTime += 1;
-
-          var accTime = allTime*0.01;
-          document.getElementById("accInt").innerHTML = Math.floor((disTime/accTime)*100)/100;
 
           if( startShield == false ) {
             if( parseInt(document.getElementById("cpri").value) < 10 || parseInt(document.getElementById("cpri").value) > 90 ) {
