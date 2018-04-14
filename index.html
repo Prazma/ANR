@@ -16,7 +16,13 @@
       <strong>If none of above match, we are currently on maintenance</strong>
     </div>
     <div id="programPort" style="display: none;">
-      <form action="javascript:startSimTraining()">
+      <form id="mainForm" action="javascript:startSimTraining()" style="height: 180px">
+        <strong>Reactor Type</strong><br>
+        <select id="reactorTypeA">
+          <option value="pwr">PWR</option>
+          <option value="smr" disabled>SMRs</option>
+          <option value="mar" disabled>MARs</option>
+        </select><br>
         <strong>Simulation data options</strong><br>
         <select id="dataPlan">
           <option value="sample">Use Sample Data</option>
