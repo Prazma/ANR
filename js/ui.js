@@ -12,8 +12,8 @@ simPort.style.margintop = "10px";
 var simDeact = document.getElementById("simDeact");
 var simAct = document.getElementById("simAct");
 
-javascriptAlert.style.display = "none";
-programPort.style.display = "block";
+javascriptAlert.style.display = "block";
+programPort.style.display = "none";
 
 uploadPort.style.marginTop = "10px";
 uploadPort.style.marginTop = "10px";
