@@ -1,4 +1,5 @@
 var automationAI = {
+  //will add "prediction" AI algorithm later on
   controlReactor : function ( cpp, rct, stg, dem ) {
     var preSet = dem/1695;
     document.getElementById("strOu").value = preSet * 100;
