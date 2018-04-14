@@ -21,7 +21,7 @@ var ANRai = {
         }
 
       }, 2);
-
+ 
       var allTime = 0;
       var disTime = 0;
 

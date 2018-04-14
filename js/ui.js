@@ -32,7 +32,7 @@ function startSimTraining() {
     simDeact.style.display = "none";
     ANRai.startSim("pwr");
 
-  } else {
+  } else { 
     //get file link or make input type="file" element value binary txt
   }
 }
