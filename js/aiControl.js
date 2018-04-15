@@ -1,6 +1,6 @@
 var automationAI = {
   //will add "prediction" AI algorithm later on
-  controlReactor : function ( cpp, rct, stg, dem ) {
+  controlReactorAP : function ( cpp, rct, stg, dem ) {
     var preSet = dem/1695;
     document.getElementById("strOu").value = preSet * 100;
     ouPerc = preSet*100;

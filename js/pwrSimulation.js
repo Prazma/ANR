@@ -1,7 +1,7 @@
 var ouPerc = 0;
 document.getElementById("rCoreR").value = 0;
 var simPlatform = {
-  startSim : function ( reactorT ) {
+  startSim : function ( reactorT, pModeV ) {
     document.getElementById("strtSimBtn").disabled = true;
     document.getElementById("strtSimBtn").value = "Running...";
 
@@ -82,7 +82,11 @@ var simPlatform = {
           var npOutputV = document.getElementById("npOutput").value;
 
           //very important script
-          automationAI.controlReactor( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
+          if( pModeV == "ap" ) {
+            automationAI.controlReactorAP( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
+          } else if ( pModeV == "ai" ) {
+
+          }
           var stOut = document.getElementById("strOu").value;
           document.getElementById("npOutput").value = ouPerc*16.95;
 
