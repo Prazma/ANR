@@ -14,6 +14,8 @@ simPort.style.margintop = "10px";
 var simDeact = document.getElementById("simDeact");
 var simAct = document.getElementById("simAct");
 
+$('.menu .item').tab();
+
 javascriptAlert.style.display = "none";
 programPort.style.display = "block";
 
