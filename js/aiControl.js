@@ -14,5 +14,8 @@ var automationAI = {
       document.getElementById("rodPosR").value = newCpriV;
     }
 
+  },
+  controlReactorAI : function ( cpp, rct, stg, dem ) {
+    
   }
 }
