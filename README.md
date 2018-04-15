@@ -1,7 +1,7 @@
-# Project ANR
+# Project ANR (Automated Nuclear Reactor)
 ## [Link to progress and updates!](https://github.com/Prazma/ANR/projects)
 ## [The wiki will open up for hardware extention usage guide](https://github.com/Prazma/ANR/wiki)
-## PWR Nuclear Power plant automation by AI on the web
+## Nuclear Power plant automation by AI on the web
 This project uses simple back-propagation implemented JavaScript to achieve an accurate automation. Therefore, this project was aimed to commit to the space development and exploration in terms of sustainable energy source.
 ### Why AI Automation?
 Machines such as rovers can be sent to an extraterrestrial planet such as Mars, while humans cannot yet be sent. Therefore, we must have a program (machine) which is able to control and maintain the power plant based on the demand of electricity needed, and as well as the safety measures needed to be concerned. This project aims to create an over 95% accurate control platform.
