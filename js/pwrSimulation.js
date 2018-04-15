@@ -85,7 +85,7 @@ var simPlatform = {
           if( pModeV == "ap" ) {
             automationAI.controlReactorAP( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
           } else if ( pModeV == "ai" ) {
-
+            automationAI.controlReactorAI( parseInt(cpriVal), parseInt(cRCoreR), parseInt(npOutputV), demandV );
           }
           var stOut = document.getElementById("strOu").value;
           document.getElementById("npOutput").value = ouPerc*16.95;
