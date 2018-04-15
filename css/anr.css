@@ -101,3 +101,16 @@ form {
   color: #4285f4;
   border-bottom: 1px solid #dddddd;
 }
+.blueTag {
+  top: -2px;
+  right: -9px;
+  z-index: 2;
+  background-image: linear-gradient(#54a3ff, #006eed);
+  background-clip: padding-box;
+  border: none;
+  padding: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+}
